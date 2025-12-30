@@ -19,3 +19,11 @@ Step by step instruction
   - after completed all this steps you able to use latex on your vscode(the file extension with .tex)
 
 # You can download my intenship report on releases.
+
+## Sample Images
+
+![Boost Converter Calculation](images/boost_converter_cal.png)
+
+![RC filter calculation](images/RC_filter_cal.png)
+
+![Matlab code and graph](images/graph_with_matlab_code.png)
