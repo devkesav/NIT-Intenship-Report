@@ -1,0 +1,119 @@
+\documentclass[12pt,a4paper]{report}
+
+% -------------------- PAGE SETUP --------------------
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{titlesec}
+
+% -------------------- FONT SETTINGS (XeLaTeX) --------------------
+\usepackage{fontspec}
+
+% Main text font
+\setmainfont{Times New Roman}
+
+% Heading font
+\newfontfamily\headingfont{Arial}
+
+% -------------------- PACKAGES --------------------
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{amsmath, amssymb}
+\usepackage{tocloft}
+\usepackage{hyperref}
+
+% -------------------- HEADING FORMAT --------------------
+\titleformat{\chapter}
+  {\headingfont\bfseries\Large}
+  {Chapter \thechapter}
+  {1em}
+  {}
+
+\titleformat{\section}
+  {\headingfont\bfseries\large}
+  {\thesection}
+  {1em}
+  {}
+
+% -------------------- DOCUMENT --------------------
+\begin{document}
+
+% -------------------- TITLE PAGE --------------------
+\begin{titlepage}
+\centering
+
+{\Large \textbf{INTERNSHIP REPORT}}\\[1.5cm]
+
+A report submitted in partial fulfillment of the requirements for the award of the degree of\\[0.3cm]
+
+{\large \textbf{BACHELOR OF ENGINEERING}}\\[0.3cm]
+in\\[0.3cm]
+{\large \textbf{ELECTRICAL AND ELECTRONICS ENGINEERING}}\\[1cm]
+
+\textbf{By}\\[0.3cm]
+{\large \textbf{MOHAMED IRFAN M}}\\
+Reg No: 23EE031\\[1cm]
+
+\textbf{Under the Supervision of}\\
+SANJAY RAJ\\
+Developer\\[1cm]
+
+\textbf{KPR INSTITUTE OF ENGINEERING AND TECHNOLOGY}\\
+(Autonomous, NAAC ‘A’)\\
+Coimbatore – 641407\\[0.5cm]
+
+\textbf{JANUARY 2025}
+
+\vfill
+\end{titlepage}
+
+% -------------------- CERTIFICATE --------------------
+\chapter*{BONAFIDE CERTIFICATE}
+\addcontentsline{toc}{chapter}{BONAFIDE CERTIFICATE}
+
+This is to certify that the internship report submitted by \textbf{MOHAMED IRFAN M (23EE031)} is
+a record of work carried out by him during the academic year 2024–2025 in partial fulfillment of
+the requirements for the award of the degree of Bachelor of Engineering in Electrical and
+Electronics Engineering.
+
+\vspace{2cm}
+\noindent
+Head of the Department \hfill IIPC Coordinator
+
+% -------------------- ACKNOWLEDGEMENT --------------------
+\chapter*{ACKNOWLEDGEMENT}
+\addcontentsline{toc}{chapter}{ACKNOWLEDGEMENT}
+
+I express my sincere gratitude to all those who supported and guided me throughout the internship
+period. I thank my institution, faculty members, and industry mentors for their valuable guidance
+and encouragement.
+
+% -------------------- ABSTRACT --------------------
+\chapter*{ABSTRACT}
+\addcontentsline{toc}{chapter}{ABSTRACT}
+
+The objective of this internship was to gain hands-on experience in front-end web development
+using HTML, CSS, JavaScript, and modern frameworks. This report summarizes the knowledge
+and practical exposure gained during the internship period.
+
+% -------------------- TABLE OF CONTENTS --------------------
+\tableofcontents
+\clearpage
+
+% -------------------- CHAPTERS --------------------
+\chapter{About the Company}
+Reccsar Pvt. Ltd., located in Madurai, Tamil Nadu, is a software development and digital marketing company
+providing services such as ERP, CRM, web development, IoT, and data science.
+
+\chapter{Internship Plan}
+This chapter explains the weekly plan and training modules covered during the internship.
+
+\chapter{Training Tasks}
+Tasks included front-end development, API integration, and project development using React.
+
+\chapter{Conclusion}
+The internship provided practical exposure to real-world development practices and enhanced both
+technical and professional skills.
+
+\end{document}

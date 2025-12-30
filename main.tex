@@ -1,0 +1,1699 @@
+% Compile with: xelatex main.tex
+\documentclass[12pt,a4paper]{article}
+
+% ---------- PAGE SETUP ----------
+\usepackage[a4paper,
+  top=1in,
+  bottom=1in,
+  left=1.2in,
+  right=1.2in]{geometry}
+
+\usepackage{fontspec}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage{everypage}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{tcolorbox}
+\tcbuselibrary{listings,skins,breakable}
+
+% ----- lstlisting settings -----
+\lstset{
+    language=Matlab,
+    basicstyle=\ttfamily\small, % monospaced small font
+    keywordstyle=\color{blue}\bfseries,
+    commentstyle=\color{green!60!black}\itshape,
+    stringstyle=\color{red!80!black},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+    numbersep=5pt,
+    backgroundcolor=\color{gray!5},
+    frame=single,
+    rulecolor=\color{black},
+    breaklines=true,
+    breakatwhitespace=true,
+    tabsize=4,
+    captionpos=b,
+    showstringspaces=false
+}
+
+% tcolorbox environment for full code
+\newtcblisting{FullMatlabCode}[2][]{
+    listing only,
+    listing options={#1},
+    colback=gray!5,
+    colframe=black,
+    coltitle=black,
+    fonttitle=\bfseries,
+    title=#2,
+    enhanced,
+    breakable,
+    sharp corners
+}
+
+\usetikzlibrary{calc}
+
+%-----------CODE INSET---------
+\lstdefinestyle{matlab}{
+    language=Matlab,
+    basicstyle=\ttfamily\small,
+    backgroundcolor=\color{bg},
+    breaklines=true,
+    breakatwhitespace=false,
+    numbers=left,
+    numberstyle=\tiny,
+    frame=none,
+    showstringspaces=false
+}
+
+
+
+
+%---------- FOR EVERY PAGE --------------
+\newcommand{\DrawPageBorder}{
+    \begin{tikzpicture}[remember picture,overlay]
+        \draw[line width=0.6pt]
+            ($(current page.north west)+(1cm,-1cm)$)
+            rectangle
+            ($(current page.south east)+(-1cm,1cm)$);
+    \end{tikzpicture}
+}
+
+%----------TO REMOVE PAGE NO---------
+\pagenumbering{gobble}
+
+
+% Add border on every page
+\AddEverypageHook{\DrawPageBorder}
+
+% ---------- NO WORD BREAK / NO HYPHEN ----------
+\usepackage[none]{hyphenat}
+\sloppy
+
+% ---------- JUSTIFIED TEXT ----------
+\usepackage{ragged2e}
+
+\setmainfont{Times New Roman}
+
+% ---------- CUSTOM TEXT COMMANDS ----------
+\newcommand{\TitleText}[1]{
+  {\fontsize{16pt}{18pt}\selectfont\bfseries #1}
+}
+\newcommand{\SubItalic}[1]{
+  {\fontsize{12pt}{14pt}\selectfont\itshape #1}
+}
+\newcommand{\BoldBig}[1]{
+  {\fontsize{14pt}{16pt}\selectfont\bfseries #1}
+}
+\newcommand{\BoldMid}[1]{
+  {\fontsize{13pt}{15pt}\selectfont\bfseries #1}
+}
+\newcommand{\NormalMid}[1]{
+  {\fontsize{12pt}{14pt}\selectfont #1}
+}
+
+% ---------- PAGE BORDER COMMAND ----------
+\newcommand{\PageBorder}{
+  \begin{tikzpicture}[remember picture,overlay]
+    \draw[line width=0.6pt]
+      ($(current page.north west)+(1cm,-1cm)$)
+      rectangle
+      ($(current page.south east)+(-1cm,1cm)$);
+  \end{tikzpicture}
+}
+
+% ---------- BORDERED PAGE ENVIRONMENT ----------
+\newenvironment{BorderedPage}
+{
+  \clearpage
+  \thispagestyle{empty}
+  \PageBorder
+  \vspace*{0.9cm}
+}
+{
+  \clearpage
+}
+
+% ---------- DOCUMENT ----------
+\begin{document}
+
+% ================= TITLE PAGE =================
+\begin{BorderedPage}
+\vspace*{-0.8cm}
+\begin{center}
+
+\TitleText{INTERNSHIP REPORT}\\[1.1cm]
+
+\SubItalic{A report submitted in partial fulfillment of the requirements for the Award of Degree of}\\[0.45cm]
+
+\BoldBig{BACHELOR OF ENGINEERING}\\[0.45cm]
+
+\BoldMid{in}\\[0.45cm]
+
+\BoldBig{ELECTRICAL AND ELECTRONICS ENGINEERING}\\[1.0cm]
+
+\BoldMid{By}\\[0.4cm]
+
+\BoldMid{KESAVARAJ K}\\
+\BoldMid{Reg No : 24EE037}\\[1.0cm]
+
+\NormalMid{\textbf{Under Supervision of}}\\[0.4cm]
+
+\BoldMid{DR. BIJUKUMAR B}\\
+\NormalMid{\textbf{Assistant Professor}}\\
+\NormalMid{\textbf{Department of Electrical and Electronics Engineering}}\\[0.3cm]
+
+\BoldMid{National institute of Technology Puducherry,}\\
+\BoldMid{Thiruvettakudy, Karaikal, Puducherry - 609609}\\[0.35cm]
+
+\BoldMid{(Period: 12/12/2025 to 26/12/2025)}\\[0.9cm]
+
+% ---------- LOGO ----------
+\includegraphics[width=3.8cm]{img-0.jpeg}\\[0.4cm]
+\NormalMid{\textbf{Learn Beyond}}\\[0.8cm]
+
+\BoldMid{KPR INSTITUTE OF ENGINEERING AND TECHNOLOGY}\\
+\NormalMid{(Autonomous, NAAC ‘A’)}\\
+\NormalMid{Avinashi Road, Arasur}\\
+\NormalMid{COIMBATORE – 641 407}\\[0.7cm]
+
+\BoldMid{JANUARY – 2026}
+
+\end{center}
+
+\end{BorderedPage}
+
+% ================= PAGE 2 =================
+\begin{BorderedPage}
+
+\vspace*{-0.8cm}
+\begin{center}
+\begin{minipage}[c]{0.18\textwidth}
+    \includegraphics[width=2.7cm]{img-0.jpeg}
+    \textbf{\selectfont Learn Beyond}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.8\textwidth}
+    \centering
+    {\textbf{\fontsize{22pt}{23pt}\selectfont
+    KPR Institute of Engineering\\
+    and Technology}}
+
+\end{minipage}
+\end{center}
+\vspace{1cm}
+
+
+\vspace{1.2cm}
+
+\begin{center}
+{\bfseries\fontsize{16pt}{18pt}\selectfont BONAFIDE CERTIFICATE}
+\end{center}
+
+\vspace{1.0cm}
+
+\noindent
+\parbox{\textwidth}{
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\fontsize{12pt}{18pt}\selectfont
+This is to certify that the \textbf{Internship report} submitted by
+\textbf{KESAVARAJ K (24EE037)} is the work done by him and submitted
+during the academic year \textbf{2025--2026}, in partial fulfillment
+of the requirements for the award of the degree of
+\textbf{BACHELOR OF ENGINEERING in ELECTRICAL AND ELECTRONICS ENGINEERING}
+at \textbf{KPR Institute of Engineering and Technology}.
+}
+
+
+
+
+\vspace{2.2cm}
+
+\noindent
+\begin{tabular}{|>{\bfseries}p{7cm}|>{\bfseries}p{7cm}|}
+\hline
+Department IPC Coordinator & Head of the Department \\[2mm] % extra vertical space
+Dr. A. Mohamed Ibrahim & Dr. K. Mohana Sundaram \\[1mm]
+Department of EEE & Department of EEE \\[1mm]
+\parbox{7cm}{\textbf{KPR Institute of Engineering and\\Technology}} &
+\parbox{7cm}{\textbf{KPR Institute of Engineering and\\Technology}} \\[2mm]
+\hline
+\end{tabular}
+
+
+\end{BorderedPage}
+
+%--page3 
+\begin{BorderedPage} 
+  \vspace*{-0.8cm}
+    \begin{center}
+        \BoldMid{INTERNSHIP COMPLETION CERTIFICATE}
+    \end{center}
+
+\end{BorderedPage}
+
+%--page4
+\begin{BorderedPage}
+    \vspace*{-1.2cm}
+    \begin{center}
+        \BoldMid{ACKNOWLEDGEMENT}
+    \end{center}
+    
+\begin{spacing}{1.5}
+\justifying
+
+First and foremost, we would like to express our sincere gratitude to our respected \textbf{Head of the Department, Dr. K. Mohana Sundaram}, for her continuous support, encouragement, and valuable guidance throughout the internship. Her motivation and kind permission enabled us to gain practical exposure beyond the classroom curriculum.  
+
+We are extremely grateful to our \textbf{Chief Mentor, Dr. I. Baranilingesan}, for sharing the internship brochure, encouraging us to apply, and providing timely guidance, which helped us gain real-world experience and enhance our technical and professional skills.  
+
+We would also like to acknowledge \textbf{Dr. B. Bijukumar}, NIT Karaikal, and \textbf{Mr. Arun}, a research scholar under Dr. Bijukumar, for their valuable mentorship.
+
+We are highly indebted to our \textbf{Chairman, Dr. K.P. Ramasamy}, our \textbf{Chief Executive Officer, Dr. A. M. Natarajan}, and our beloved \textbf{Principal, Dr. D. Saravanan}, for providing the necessary facilities and support to accomplish this internship successfully.  
+
+We sincerely thank the IIPC coordinator, \textbf{Dr. A. Mohamed Ibrahim}, faculty members, and our friends for their support, cooperation, and encouragement throughout the internship. The knowledge and experience gained during this period will be invaluable for our academic growth and future professional career.  
+\end{spacing}
+\end{BorderedPage}
+
+%--PAGE5
+\begin{BorderedPage}
+    \vspace*{-0.8cm}
+    \begin{center}
+        \BoldMid{ABSTRACT}
+    \end{center}
+
+    \begin{spacing}{1.5}
+\justifying
+
+This internship report presents the knowledge and practical experience gained in the field of \textbf{Power Electronics}. The primary objective of this internship was to understand the fundamental and advanced concepts of power electronic circuits and their applications through simulation and analysis.
+
+Under the guidance of an expert in power electronics, practical exposure was gained in the use of industry-standard software tools such as \textbf{MATLAB} and \textbf{LTspice}. These tools were extensively used to model, simulate, and analyze various power electronic converters and control techniques. The internship emphasized understanding circuit behavior, waveform analysis, and performance evaluation under different operating conditions.
+
+The internship also enhanced problem-solving skills by applying theoretical knowledge to real-time simulation-based tasks. Working with MATLAB helped in developing algorithmic thinking and analyzing system performance, while LTspice provided hands-on experience in circuit-level simulation and validation.
+
+This report documents the concepts learned, tools used, and the overall experience gained during the internship, highlighting the significance of power electronics and simulation tools in modern electrical and electronic engineering applications.
+\end{spacing}
+\end{BorderedPage}
+
+%--PAGE6
+\begin{BorderedPage}
+  \vspace*{-0.8cm}
+    \begin{center}
+        \section*{TABLE OF CONTENTS}
+    \end{center}
+
+
+\vspace{0.5cm}
+
+\begin{center}
+\renewcommand{\arraystretch}{2.0} % increases row height
+\begin{tabular}{|c|p{9cm}|c|}
+\hline
+\textbf{Chapter No} &
+\centering\textbf{Title} &
+\textbf{Page No} \\
+\hline
+1 & Internship Certificate & 1 \\
+\hline
+2 & Abstract & 3 \\
+\hline
+3 & About the College & 4 \\
+\hline
+4 & Plan of the In-Plant Training / Industry Training / Internship Program & 5 \\
+\hline
+5 & Training Task & 9 \\
+\hline
+6 & Conclusion & 40 \\
+\hline
+\end{tabular}
+\end{center}
+
+\end{BorderedPage}
+
+%--page7
+\begin{BorderedPage}
+  \vspace*{-0.8cm}
+    \fontsize{17pt}{20pt}
+   \begin{center}
+\textbf{Chapter 1}
+
+
+\vspace{0.5cm}
+\fontsize{15pt}{10pt}
+\textbf{About the College}
+\end{center}
+
+\begin{spacing}{1.5}
+\justifying
+The National Institute of Technology, Karaikal, Puducherry, is one of the premier institutions of higher education in India, functioning under the Ministry of Education, Government of India. The institute is well known for its strong academic foundation, research-oriented environment, and commitment to producing skilled engineers and technologists capable of meeting global industry standards.
+
+NIT Karaikal offers undergraduate, postgraduate, and doctoral programs in various engineering and science disciplines. The institution emphasizes both theoretical knowledge and practical exposure, enabling students to gain a deep understanding of engineering concepts and their real-world applications.
+
+The institute is equipped with advanced laboratories, modern infrastructure, and state-of-the-art computational facilities. It actively promotes hands-on learning through internships, industrial training programs, workshops, and research projects. Students are encouraged to engage in innovative problem-solving and interdisciplinary learning.
+
+As part of its academic curriculum and industry interaction initiatives, NIT Karaikal provides internship opportunities to students from various engineering backgrounds. These internships are designed to enhance technical skills, improve analytical abilities, and offer real-time exposure to industrial and research environments. The internship programs focus on bridging the gap between academic learning and practical implementation.
+
+During the internship period, students receive expert guidance from experienced faculty members and researchers. The institute places strong emphasis on emerging technologies, software tools, and simulation platforms such as MATLAB and LTspice, particularly in the field of power electronics and electrical engineering.
+
+Overall, NIT Karaikal plays a significant role in shaping technically competent and professionally responsible engineers by fostering academic excellence, research innovation, and industry-oriented training.
+
+\end{spacing}
+\end{BorderedPage}
+
+%--page8
+\begin{BorderedPage}
+  
+   \begin{center} 
+        \vspace*{-1.0cm}
+        \fontsize{17pt}{20pt}\textbf{Chapter 2}
+
+        \vspace{0.5cm}
+        \fontsize{15pt}{10pt}
+        \textbf{Plan of the internship program}
+    \end{center}
+
+    \setlength{\parindent}{0pt}
+
+    {\fontsize{14.2pt}{0.1pt}\selectfont\textbf{Week 1: Study of Boost Converter and Filter Circuits}}
+
+    \vspace{0.5cm}
+
+    \textbf{Day 1--2: Study of DC-DC Converter fundamentals in design aspect}
+
+    \vspace{0.2cm}
+    \begin{spacing}{1.2} \justifying
+      The First day of your intenship, The given task is design the DC-DC Converter. It has two types Buck and Boost. 
+      On that day, We studied the fundamental concepts and math equations to design our own custom DC-DC Converters. 
+      After the completion study of theoretical, next we move on to desgin DC-DC Boost Converter using Math formulae.
+    \end{spacing}
+    
+
+    \vspace{0.3cm}
+
+    \textbf{Day 3--4: Simulation of DC-DC Boost Converter}
+
+    \vspace{0.2cm}
+    \begin{spacing}{1.2} \justifying
+      During the next two days, we simulated our designed DC–DC Boost Converter to verify whether it was working properly. 
+      We used two simulation software tools, namely \textbf{MATLAB and LTspice}. 
+      MATLAB is an application-based software commonly preferred in academic institutions, whereas LTspice is a circuit-simulation-based software that is more efficient for circuit analysis. 
+      Hence, LTspice was preferred and recommended by Dr. B. Bijukumar for this project.
+    \end{spacing}
+
+    \vspace{0.3cm}
+
+    \textbf{Day 5: Introduction of RC filters}
+    \vspace{0.2cm}
+    \begin{spacing}{1.2} \justifying
+      After verifying the operation of our DC–DC Boost Converter and plot the graph `Efficiency vs Output power' on MatLab, we observed significant ripple at the output side. 
+      Such pulsating DC output cannot be directly used to power electronic devices. 
+      To reduce the ripple, an output filter is required. Although several types of filters are available, we began with a basic RC filter as an introductory approach suitable for beginners.
+    \end{spacing}
+
+    \vspace{0.3cm}
+
+    \textbf{Day 6: Study and simulate Low Pass RC filter}
+    \vspace{0.2cm}
+    \begin{spacing}{1.2}\justifying
+      The first type of RC filter studied was the low-pass filter, which allows signals with frequencies lower than a selected cutoff frequency to pass while rejects higher-frequency components. 
+      To understand its behavior, the mathematical equations and derivations were studied in detail. 
+      Subsequently, the filter was simulated using LTspice to obtain frequency response graphs that closely matched the theoretical characteristics.
+    \end{spacing}
+
+    \vspace{0.3cm}
+
+    \textbf{Day 7: Study and simulate High Pass RC filter}
+    \vspace{0.2cm}
+    \begin{spacing}{1.2}\justifying
+      The RC high-pass filter permits high-frequency signals above the cutoff frequency while suppressing low-frequency components, including DC. 
+      The theoretical analysis, including cutoff frequency calculation and transfer function derivation, was carried out in detail. 
+      The designed filter was then simulated using LTspice, and the obtained frequency response closely aligned with the theoretical characteristics.
+    \end{spacing}
+
+\end{BorderedPage}
+
+%--page9
+\begin{BorderedPage}
+  \vspace*{-1cm}
+
+  \setlength{\parindent}{0pt}
+  {\fontsize{14.2pt}{16pt}\selectfont\textbf{Week 2: Study of Boost Converter and Filter Circuits}}
+
+  \vspace{0.5cm}
+
+  \textbf{Day 8: Handplot graph of RC filters}
+  \vspace{0.2cm}
+  \begin{spacing}{1.2}\justifying
+    After we got the graph of low and high pass RC filters in LTspice. 
+    Sir gave the task to plot the low pass and high pass RC filter graph using `semi-log graph(5-cycles)' to understand how to plot the graph manually, and so understand where it has the cut-off frequency and learn how to use `semi-log graphs'.
+  \end{spacing}
+
+  \vspace{0.3cm}
+
+  \textbf{Day 9: Full Wave Rectifier and Addition of Two Sine Waves with RC Filter}
+  \vspace{0.2cm}
+  \begin{spacing}{1.2}\justifying
+    The operation of a full wave rectifier and the design of an RC filter were studied. 
+    The rectifier converts AC into pulsating DC with reduced ripple by utilizing both half cycles. 
+    Two sine waves of 50~Hz and 100~Hz were combined, and an RC low-pass filter was designed to attenuate the higher-frequency component and obtain a smooth output.
+  \end{spacing}
+
+
+  \vspace{0.3cm}
+
+  \textbf{Day 10: Study of PV array and its characteristics}
+  \vspace{0.2cm}
+  \begin{spacing}{1.2}\justifying
+    This day marked our introduction to renewable energy systems. 
+    We studied the fundamentals of the photovoltaic (PV) array, including its working principle and the arrangement of the p–n junctions within the PV cells. 
+    In addition, we analyzed the electrical characteristics of the PV array through the interpretation of its I–V and P–V curves.
+  \end{spacing}
+
+  \vspace{0.3cm}
+
+  \textbf{Day 11: Design DC-DC Boost Converter with the input source of PV array}
+  \vspace{0.2cm}
+  \begin{spacing}{1.2}\justifying
+    Already we designed DC-DC Boost Conveter with the input source of Constant DC source. 
+    Now, replaced the constant DC source with PV array and redesign the Boost Converter, which suitable for PV array input.
+  \end{spacing}
+
+  \vspace{0.3cm}
+
+  \textbf{Day 12: Design a circuit with series \& parallel PV array and DC-DC Boost Converter}
+  \vspace{0.01cm}
+  \begin{spacing}{1.2}\justifying
+    DC–DC Boost Converter circuits were designed using both series and parallel configurations of two PV arrays. 
+    The I–V and P–V characteristics of the series- and parallel-connected PV arrays were observed and analyzed. 
+    This study helped in understanding the practical scenarios involved in selecting appropriate PV array configurations for DC–DC Boost Converter design. 
+  \end{spacing}
+
+  \vspace{0.3cm}
+
+  \textbf{Day 13: Introduction and Importance of MPPT in PV}
+  \vspace{0.2cm}
+  \begin{spacing}{1.2}\justifying
+    In a series-connected PV array with a DC–DC boost converter, unequal irradiance levels cause mismatch losses, reducing the output power. 
+    To analyze this effect, the I–V and P–V characteristics of separate and series PV configurations are plotted and studied. 
+    An MPPT algorithm is then implemented to reduce these losses and ensure maximum power extraction by operating the system at the maximum power point.
+  \end{spacing}
+
+\end{BorderedPage}
+
+%--page10
+\begin{BorderedPage}
+  \vspace*{-1cm}
+
+  \setlength{\parindent}{0pt}
+
+  \textbf{Day 14: Design and Implementation of MPPT in PV array}
+  \vspace{0.2cm}
+  \begin{spacing}{1.2}\justifying
+    After understanding the concept of Maximum Power Point Tracking (MPPT), the Perturb and Observe (P\&O) algorithm, which is one of the commonly used MPPT techniques, is studied in detail to extract the maximum power output from the PV array. 
+    The algorithm is then implemented and simulated in MATLAB/Simulink to verify its effectiveness in tracking the maximum power point under varying operating conditions.
+  \end{spacing}
+
+  \vspace{0.3cm}
+
+  \textbf{Day 15: Hardware Demonstration}
+  \vspace{0.2cm}
+  \begin{spacing}{1.2}\justifying
+   On the final day of our internship, we had the opportunity to observe the hardware setup of the MPPT controller along with the PV array simulation instruments, helping us understand the practical implementation and real-time operation of MPPT systems.
+  \end{spacing}
+\end{BorderedPage}
+
+%--page11
+\begin{BorderedPage}
+\begin{center}
+\textbf{\Large WEEKLY OVERVIEW OF INTERNSHIP ACTIVITIES}
+\vspace{1.5cm}
+
+\renewcommand{\arraystretch}{2.1}
+\begin{tabular}{|>{\centering\arraybackslash}m{0.9cm}|c|c|p{8cm}|}
+\hline
+ & \textbf{DATE} & \textbf{DAY} & \textbf{NAME OF THE TOPIC COMPLETED} \\
+\hline
+\multirow{6}{*}{\centering\rotatebox{90}{\textbf{1$^{st}$ WEEK}}}
+ & 12/12/25 & Friday & Study of DC-DC Boost Converter \\
+\cline{2-4}
+ & 13/12/25 & Saturday & Design of DC-DC Boost Conveter \\
+\cline{2-4}
+ & 14/12/25 & Sunday & Simulation of DC-DC Boost Converter in MATLAB \\
+\cline{2-4}
+ & 15/01/25 & Monday & Simulation of DC-DC Boost Converter in LTspice \\
+\cline{2-4}
+ & 16/12/25 & Tuesday & Introduction of RC Filters \\
+\cline{2-4}
+ & 17/12/25 & Wednesday & Study and simulate Low Pass Filter \\
+ \cline{2-4}
+ & 18/12/25 & Thursday & Study and simulate High Pass Filter \\
+\hline
+
+\multirow{6}{*}{\centering\rotatebox{90}{\textbf{2$^{nd}$ WEEK}}}
+ & 19/12/25 & Friday & Handplot graph of RC Filters \\
+\cline{2-4}
+ & 20/12/25 & Saturday & Full Wave Rectifier and Addition of Two Sine Waves with RC Filter \\
+\cline{2-4}
+ & 21/12/25 & Sunday & Study and analysis of PV array \\
+\cline{2-4}
+ & 22/12/25 & Monday & Design of PV array with Boost Converter \\
+\cline{2-4}
+ & 23/12/25 & Tuesday & Design of Boost Converter with series \& parallel PV array\\
+\cline{2-4}
+ & 24/12/25 & Wednesday & Study of MPPT \\
+ \cline{2-4}
+ & 25/12/25 & Thursday & Design of MPPT P\&O algorithm \\
+\hline
+%--15th day
+ & 26/12/25 & Friday & Hardware Demonstration \\
+\cline{2-4}
+\hline
+\end{tabular}
+
+
+
+\end{center}
+
+
+\end{BorderedPage}
+
+%--page12
+\begin{BorderedPage}
+  \begin{center} 
+
+        \vspace*{-1.0cm}
+        \fontsize{17pt}{20pt}\textbf{Chapter 3}
+
+        \vspace{0.5cm}
+        \fontsize{15pt}{10pt}
+        \textbf{Training Task}
+    \end{center}
+
+    \vspace{0.5cm}
+
+     \setlength{\parindent}{0pt}
+
+    {\fontsize{14.2pt}{0.1pt}\selectfont\textbf{Task 1: Study and design of Boost Conveter}}
+
+    \vspace{0.5cm}
+
+    \begin{spacing}{0.5} \justifying
+      %Boost Conveter Figure
+      \begin{figure}[h!]
+        \centering
+        \includegraphics[width=1.0\textwidth]{pic/Boost Converter.png}
+        \caption{Boost Converter Circuit Designed in LTspice}
+        \label{fig:boost_converter_LTspice}
+      \end{figure}
+
+      \begin{figure}[h!]
+        \centering
+        \includegraphics[width=1.0\textwidth]{pic/boost convert.png}
+        \caption{Boost Converter Circuit Designed in MATLAB}
+        \label{fig:boost_converter_MATLAB}
+      \end{figure}
+
+      
+
+    \end{spacing}
+
+\end{BorderedPage}
+
+\begin{BorderedPage}
+
+{\fontsize{20.2pt}{18pt}\textbf{Calculations:}}
+
+\section{Specifications}
+\begin{itemize}
+    \item Input voltage: \( V_{in} = \SI{5}{V} \)
+    \item Output voltage: \( V_{out} = \SI{15}{V} \)
+    \item Switching frequency: \( f_s = \SI{25}{kHz} \)
+    \item Inductor: \( L = \SI{150}{mH} \)
+    \item Output capacitor: \( C = \SI{220}{\mu F} \)
+    \item Load resistance range: \( R \in \{10, 20, 30, 40, 50, 60\}\,\Omega \)
+\end{itemize}
+
+\section{Design Calculations}
+
+\subsection{Duty Cycle}
+\[
+D = 1 - \frac{V_{in}}{V_{out}} = 1 - \frac{5}{15} = 0.667
+\]
+
+\subsection{Output Current and Power for Each Load}
+\[
+I_{out} = \frac{V_{out}}{R}, \quad P_{out} = V_{out} \cdot I_{out}
+\]
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{ccc}
+        \toprule
+        \( R\,(\Omega) \) & \( I_{out}\,(\si{A}) \) & \( P_{out}\,(\si{W}) \) \\
+        \midrule
+        10 & 1.500 & 22.500 \\
+        20 & 0.750 & 11.250 \\
+        30 & 0.500 & 7.500 \\
+        40 & 0.375 & 5.625 \\
+        50 & 0.300 & 4.500 \\
+        60 & 0.250 & 3.750 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Output current and power for given loads.}
+\end{table}
+
+\section{MOSFET and Diode Loss Analysis}
+
+\subsection{MOSFET Parameters}
+\begin{itemize}
+    \item \( R_{DS(on)} = \SI{22}{\milli\ohm} \)
+    \item Rise time \( t_r = \SI{60}{ns} \)
+    \item Fall time \( t_f = \SI{60}{ns} \)
+\end{itemize}
+
+\subsection{MOSFET RMS Current}
+\[
+I_{MOS, rms} = I_{in} \sqrt{D}
+\]
+For \( I_{in} = \SI{4.5}{A} \):
+\[
+I_{MOS, rms} = 4.5 \times \sqrt{0.667} = \SI{3.64}{A}
+\]
+
+\subsection{MOSFET Conduction Loss}
+\[
+P_{cond, MOS} = I_{MOS, rms}^2 \cdot R_{DS(on)}
+\]
+\[
+P_{cond, MOS} = (3.64)^2 \times 22 \times 10^{-3} = \SI{0.29}{W}
+\]
+
+\subsection{MOSFET Switching Loss}
+\[
+P_{sw, MOS} = \frac{1}{2} V_{in} I_{in} (t_r + t_f) f_s
+\]
+\[
+P_{sw, MOS} = \frac{1}{2} \times 5 \times 4.5 \times (60 + 60) \times 10^{-9} \times 28 \times 10^{3} = \SI{0.033}{W}
+\]
+
+\subsection{Diode Parameters (SS34)}
+\begin{itemize}
+    \item Forward voltage \( V_F = \SI{0.5}{V} \)
+    \item Reverse recovery charge \( Q_{rr} = \SI{5}{nC} \)
+\end{itemize}
+
+\subsection{Diode Conduction Loss}
+\[
+P_{cond, D} = I_{out} \cdot V_F \cdot (1 - D)
+\]
+For \( I_{out} = \SI{1.5}{A} \):
+\[
+P_{cond, D} = 1.5 \times 0.5 \times (1 - 0.667) = \SI{0.249}{W}
+\]
+
+\subsection{Diode Reverse Recovery Loss}
+\[
+P_{rr} = Q_{rr} \cdot V_{out} \cdot f_s
+\]
+\[
+P_{rr} = 5 \times 10^{-9} \times 15 \times 28 \times 10^{3} = \SI{6e-18}{W} \quad (\text{negligible})
+\]
+
+\subsection{Total Loss}
+\[
+P_{loss} = P_{cond, MOS} + P_{sw, MOS} + P_{cond, D} + P_{rr}
+\]
+\[
+P_{loss} = 0.29 + 0.033 + 0.249 + 6 \times 10^{-18} \approx \SI{0.572}{W}
+\]
+
+\section{Efficiency}
+For \( R = \SI{10}{\ohm} \), \( P_{out} = \SI{22.5}{W} \):
+\[
+\eta = \frac{P_{out}}{P_{out} + P_{loss}} \times 100\% = \frac{22.5}{22.5 + 0.572} \times 100\% \approx 97.5\%
+\]
+
+\section{Efficiency for Various Loads}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{ccc}
+        \toprule
+        \( R\,(\Omega) \) & \( P_{out}\,(\si{W}) \) & \( \eta\,(\%) \) \\
+        \midrule
+        10 & 22.50 & 97.5 \\
+        20 & 11.25 & 95.2 \\
+        30 & 7.50 & 92.9 \\
+        40 & 5.63 & 90.8 \\
+        50 & 4.50 & 88.9 \\
+        60 & 3.75 & 87.1 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Efficiency across different load resistances.}
+\end{table}
+
+
+
+\section*{Ripple Factor Calculation}
+
+The output capacitor ripple voltage is given by:
+
+\[
+\Delta v_c = \frac{I_o \cdot D}{f \cdot C}
+\]
+
+Substituting the given values:
+
+\[
+\Delta v_c = \frac{1.14 \times 0.58}{50 \times 97 \times 10^{-6}}
+\]
+
+\[
+\Delta v_c = 0.13\ \text{V}
+\]
+
+Where:
+\begin{align*}
+I_o &= \SI{1.14}{A} \quad \text{(output current)} \\
+D &= 0.58 \quad \text{(duty cycle)} \\
+f &= \SI{50}{Hz} \quad \text{(switching frequency)} \\
+C &= \SI{97}{\mu F} \quad \text{(output capacitance)}
+\end{align*}
+
+
+\begin{figure}[h!]
+        \centering
+        \includegraphics[width=1.0\textwidth]{pic/efficiency vs ouput power .jpeg}
+        \caption{Efficiency vs Ouput Power graph from our calculation}
+        \label{fig:efficiency vs ouput power}
+      \end{figure}
+
+\begin{figure}[h!]
+        \centering
+        \includegraphics[width=1.0\textwidth]{pic/boost output .png}
+        \caption{Boost Converter Circuit Output graph in MATLAB}
+        \label{fig:boost_converter_MATLAB_OUTPUT}
+      \end{figure}
+
+\end{BorderedPage}
+
+%--Design of LOW and HIGH pass filter
+\begin{BorderedPage}
+
+   \vspace*{-1.0cm}
+   \setlength{\parindent}{0pt}
+
+    {\fontsize{14.2pt}{0.1pt}\selectfont\textbf{Task 2: Study and design of RC Filters}}
+    
+    \vspace{0.3cm}
+
+    \begin{spacing}{1.2} \justifying
+      After observing the output waveform of the DC–DC Boost Converter (5 V / 15 V), the ripple factor is found to be very high without an RC filter.
+      From this, we understand the importance of an RC filter, which is one of the simplest filter circuits.
+      There are two types of RC filters, namely:
+
+      \begin{center}
+        1. Low Pass RC Filter \\ 2. High Pas RC Filter
+      \end{center}
+
+      \setlength{\parindent}{0pt}
+
+      {\fontsize{14pt}{14pt}\textbf{1. Low Pass RC Filter}}
+
+      \vspace{0.3cm}
+
+      \begin{spacing}{1.2} \justifying
+        This circuit allows frequencies which should be lower than cut-off frequency.
+
+      \begin{figure}[h!]
+        \centering
+        \includegraphics[width=1.0\textwidth]{pic/Low Pass RC.png}
+        \caption{Low Pass RC Filter in LTspice}
+        \label{fig:Low_pass_RC}
+      \end{figure}
+
+      On the left side of Figure~5, one graph is clearly shown, which represents the characteristics of the RC filter.
+
+      Usually, the cut-off frequency occurs at $-3\,\mathrm{dB}$ (or $70.7\%$ of the maximum output). Therefore, the dark green line shows the frequency response where the cut-off frequency is at $1\,\mathrm{kHz}$, as per our design.
+      \end{spacing}
+    \end{spacing}
+\end{BorderedPage}
+
+\begin{BorderedPage}
+  
+  \vspace*{-1.0cm}
+   \setlength{\parindent}{0pt}
+
+    {\fontsize{14pt}{14pt}\textbf{2. High Pass RC Filter}}
+    
+    \vspace{0.3cm}
+
+    \begin{spacing}{1.2} \justifying
+      This circuit allows frequencies, which should be greater than cut-off frequency.
+    \end{spacing}
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=1.0\textwidth]{pic/High Pass RC.png}
+        \caption{High Pass RC Filter in LTspice}
+        \label{fig:High_pass_RC}
+    \end{figure}
+
+    On the left side of Figure~6, one graph is clearly shown, which represents the characteristics of the RC filter.
+
+    same as, the cut-off frequency occurs at $-3\,\mathrm{dB}$ (or $70.7\%$ of the maximum output). Therefore, the dark red line shows the frequency response where the cut-off frequency is at $1\,\mathrm{kHz}$, as per our design.
+
+\title{RC Low-Pass and High-Pass Filters}
+\author{}
+\date{}
+
+\maketitle 
+
+\section{RC Low-Pass Filter}
+
+\subsection{Transfer Function Derivation (s-Domain)}
+\begin{itemize}
+    \item Impedance of resistor: \( Z_R = R \)
+    \item Impedance of capacitor: \( Z_C = \frac{1}{sC} \), where \( s = \sigma + j\omega \)
+\end{itemize}
+
+Applying voltage division:
+\[
+V_{\text{out}} = V_{\text{in}} \cdot \frac{Z_C}{Z_R + Z_C} 
+= V_{\text{in}} \cdot \frac{\frac{1}{sC}}{R + \frac{1}{sC}}
+\]
+
+Multiplying numerator and denominator by \( sC \):
+\[
+V_{\text{out}} = V_{\text{in}} \cdot \frac{1}{1 + sRC}
+\]
+
+The transfer function of a first-order RC low-pass filter is:
+\[
+H(s) = \frac{1}{1 + sRC}
+\]
+
+\begin{itemize}
+    \item DC gain: \( H(0) = 1 \)
+    \item Pole at: \( s = -\frac{1}{RC} \), which determines the cutoff frequency
+\end{itemize}
+
+\subsection{Cutoff Frequency}
+Substitute \( s = j\omega \), where \( \omega = 2\pi f \):
+\[
+H(j\omega) = \frac{1}{1 + j\omega RC}
+\]
+
+Magnitude response:
+\[
+|H(j\omega)| = \frac{1}{\sqrt{1 + (\omega RC)^2}}
+\]
+
+At cutoff frequency \( \omega_c \), \( |H(j\omega_c)| = \frac{1}{\sqrt{2}} \):
+\[
+\frac{1}{\sqrt{1 + (\omega_c RC)^2}} = \frac{1}{\sqrt{2}}
+\]
+\[
+1 + (\omega_c RC)^2 = 2
+\]
+\[
+(\omega_c RC)^2 = 1
+\]
+\[
+\omega_c RC = 1
+\]
+\[
+\omega_c = \frac{1}{RC}
+\]
+
+Converting to frequency:
+\[
+f_c = \frac{\omega_c}{2\pi} = \frac{1}{2\pi RC}
+\]
+
+\subsection{Step Response (Time Domain)}
+For a unit step input \( V_{\text{in}}(s) = \frac{1}{s} \):
+\[
+V_{\text{out}}(s) = H(s) \cdot V_{\text{in}}(s) = \frac{1}{s(1 + sRC)}
+\]
+
+Partial fraction decomposition:
+\[
+\frac{1}{s(1 + sRC)} = \frac{A}{s} + \frac{B}{1 + sRC}
+\]
+\[
+1 = A(1 + sRC) + Bs
+\]
+
+Solving:
+\begin{align*}
+\text{Let } s &= 0: \quad 1 = A(1 + 0) \Rightarrow A = 1 \\
+\text{For } s \text{ terms:} \quad 0 &= ARC + B \Rightarrow 0 = RC + B \Rightarrow B = -RC
+\end{align*}
+
+Thus:
+\[
+V_{\text{out}}(s) = \frac{1}{s} - \frac{RC}{1 + sRC} = \frac{1}{s} - \frac{1}{s + \frac{1}{RC}}
+\]
+
+Applying inverse Laplace transform:
+\[
+V_{\text{out}}(t) = \mathcal{L}^{-1}\left\{\frac{1}{s}\right\} - \mathcal{L}^{-1}\left\{\frac{1}{s + \frac{1}{RC}}\right\}
+\]
+\[
+V_{\text{out}}(t) = 1 - e^{-t/RC}
+\]
+
+For general input \( V_m \):
+\[
+V_{\text{out}}(t) = V_m \left(1 - e^{-t/RC}\right)
+\]
+
+\subsubsection{Special Cases}
+\begin{enumerate}
+    \item At \( t = 0 \): \( V_{\text{out}}(0) = V_m(1 - e^0) = 0 \)
+    \item At \( t = \infty \): \( V_{\text{out}}(\infty) = V_m(1 - e^{-\infty}) = V_m \)
+    \item At \( t = RC \) (time constant):
+    \[
+    V_{\text{out}}(RC) = V_m\left(1 - e^{-1}\right) = V_m\left(1 - \frac{1}{e}\right) 
+    = V_m(1 - 0.3679) = 0.6321V_m
+    \]
+\end{enumerate}
+
+\subsection{Frequency Response (Bode Plot)}
+\subsubsection{Magnitude}
+\[
+|H(j\omega)|_{\text{dB}} = 20\log_{10}|H(j\omega)| = 20\log_{10}\left(\frac{1}{\sqrt{1 + (\omega RC)^2}}\right)
+\]
+
+\begin{itemize}
+    \item Low frequency (\( \omega \ll \omega_c \)): Gain \( \approx 0 \) dB
+    \item High frequency (\( \omega \gg \omega_c \)): Gain decreases at \(-20\) dB/decade (or \(-6\) dB/octave)
+    \item At cutoff (\( \omega = \omega_c \)): Gain = \(-3\) dB
+\end{itemize}
+
+\subsubsection{Phase Shift}
+\[
+\angle H(j\omega) = -\tan^{-1}(\omega RC)
+\]
+\begin{itemize}
+    \item At \( f = 0 \): Phase shift = \( 0^\circ \)
+    \item At \( f = f_c \): Phase shift = \(-45^\circ \)
+    \item At \( f \to \infty \): Phase shift = \(-90^\circ \)
+\end{itemize}
+
+\subsection{Our Design}
+Design an RC LPF with cutoff frequency \( f_c = \SI{1}{kHz} \).
+
+Given \( f_c = \frac{1}{2\pi RC} \), let \( C = \SI{10}{nF} \):
+\[
+R = \frac{1}{2\pi f_c C} = \frac{1}{2\pi \times 1000 \times 10 \times 10^{-9}} 
+= \frac{1}{6.2832 \times 10^{-5}} = 1.592 \times 10^4 \, \Omega
+\]
+\[
+R \approx \SI{15.9}{k\ohm}
+\]
+
+\section{RC High-Pass Filter}
+
+\subsection{Transfer Function Derivation}
+\[
+H(s) = \frac{V_{\text{out}}(s)}{V_{\text{in}}(s)}
+\]
+
+Applying voltage division:
+\[
+V_{\text{out}}(s) = V_{\text{in}}(s) \cdot \frac{Z_R}{Z_C + Z_R} 
+= V_{\text{in}}(s) \cdot \frac{R}{R + \frac{1}{sC}}
+\]
+
+Multiplying numerator and denominator by \( sC \):
+\[
+H(s) = \frac{sRC}{1 + sRC}
+\]
+
+\subsection{Frequency Response}
+Substituting \( s = j\omega \):
+\[
+H(j\omega) = \frac{j\omega RC}{1 + j\omega RC}
+\]
+
+Magnitude:
+\[
+|H(j\omega)| = \frac{\omega RC}{\sqrt{1 + (\omega RC)^2}}
+\]
+
+Cutoff frequency (where \( |H(j\omega_c)| = \frac{1}{\sqrt{2}} \)):
+\[
+\frac{\omega_c RC}{\sqrt{1 + (\omega_c RC)^2}} = \frac{1}{\sqrt{2}}
+\]
+Solving gives \( \omega_c RC = 1 \), so:
+\[
+f_c = \frac{1}{2\pi RC}
+\]
+
+\begin{itemize}
+    \item Low frequency (\( \omega \ll \omega_c \)): Gain approaches 0 dB (after high-pass effect)
+    \item High frequency (\( \omega \gg \omega_c \)): Gain approaches 0 dB
+    \item At cutoff: Gain = \(-3\) dB
+\end{itemize}
+
+\subsection{Our design}
+Design an RC HPF with cutoff frequency \( f_c = \SI{1}{kHz} \), using \( C = \SI{10}{nF} \):
+\[
+R = \frac{1}{2\pi f_c C} = \frac{1}{2\pi \times 10^3 \times 10 \times 10^{-9}} 
+= 1.592 \times 10^4 \, \Omega
+\]
+\[
+R \approx \SI{15.9}{k\ohm}
+\]
+
+\subsection{Summary}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Parameter} & \textbf{Low-Pass Filter} & \textbf{High-Pass Filter} \\
+\hline
+Transfer function & \( H(s) = \dfrac{1}{1 + sRC} \) & \( H(s) = \dfrac{sRC}{1 + sRC} \) \\
+Cutoff frequency & \( f_c = \dfrac{1}{2\pi RC} \) & \( f_c = \dfrac{1}{2\pi RC} \) \\
+DC gain & 1 & 0 \\
+High-frequency gain & 0 & 1 \\
+Phase at \( f_c \) & \(-45^\circ\) & \(45^\circ\) \\
+\hline
+\end{tabular}
+\end{center}
+
+In design aspect, we are focusing to choose the cut-off frequency. 
+In above table, formula for cut-off frequency is same for both.
+Behavior of RC filter is based on the arrangement of resistor and capacitor. 
+
+\begin{figure}[h!]
+        \centering
+        \includegraphics[width=1.0\textwidth]{pic/LPF Plot graph.png}
+        \caption{Hand Plotted Low Pass RC Filter characteristics graph in semi-log graph(5-cycles).}
+        \label{fig:HAND_Low_pass_RC}
+\end{figure}
+
+\begin{figure}[h!]
+        \centering
+        \includegraphics[width=1.0\textwidth]{pic/HPF Plot graph.png}
+        \caption{Hand Plotted High Pass RC Filter characteristics graph in semi-log graph(5-cycles).}
+        \label{fig:HAND_HIGH_pass_RC}
+\end{figure}
+
+\end{BorderedPage}
+
+\begin{BorderedPage}
+
+  \vspace*{-1.0cm}
+
+  \setlength{\parindent}{0pt}
+
+    {\fontsize{14.2pt}{0.1pt}\selectfont\textbf{RC filter practical application tasks: }}
+
+    \vspace{0.5cm}
+
+    {\fontsize{12pt}{0.1pt}\selectfont\textbf{1. Using RC filter with Full Wave Rectifier: }}
+
+    \begin{spacing}{1.2} \justifying
+        \begin{figure}[h!]
+        \centering
+        \includegraphics[width=1.0\textwidth]{pic/full wave reciter.png}
+        \caption{Full Wave Rectifier circuit with RC filter results in MATLAB}
+        \label{fig:Full_Wave_Rectifier_1}
+    \end{figure}
+
+    \vspace{0.6cm}
+      
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=1.0\textwidth]{pic/full wave result(1).png}
+        \caption{Full Wave Rectifier Output with RC filter results in MATLAB}
+        \label{fig:Full_Wave_Rectifier_2}
+    \end{figure}
+
+    \newpage
+
+    \vspace*{-1.0cm}
+
+    \setlength{\parindent}{0pt}
+
+    {\fontsize{12pt}{14.4pt}\selectfont\textbf{2. Add two sine waves (\(\textbf{50}\,\text{Hz}\) and \(\textbf{100}\,\text{Hz}\)):}}
+
+    \vspace{0.3cm}
+
+    \begin{spacing}{1.2} \justifying
+      
+      In the design of a circuit to add two sine waves, the limitations of the RC filter become evident.
+
+      Although the RC filter is simple and efficient, it performs poorly when the frequencies are very close—such as \SI{50}{\hertz} and \SI{100}{\hertz}—making the filtering effect negligible.
+
+      Thus, RC filters are ineffective for separating closely spaced frequencies.
+    \end{spacing}
+    
+    \vspace{0.3cm}
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=1.0\textwidth]{pic/added sine circuit.png}
+        \caption{Design Addition of two sine wave circuit in MATLAB}
+        \label{fig:add_sine_circuit}
+    \end{figure}
+    
+    \vspace{0.3cm}
+    
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=1.0\textwidth]{pic/added sine wave.png}
+        \caption{Added two sine wave result in MATLAB}
+        \label{fig:add_sine_wave}
+    \end{figure}
+
+    \end{spacing}
+
+\end{BorderedPage}
+
+%--pv array
+\begin{BorderedPage}
+  \setlength{\parindent}{0pt}
+
+    {\fontsize{14.2pt}{0.1pt}\selectfont\textbf{Task 3: Study and Analysis of PV array}}
+
+    \vspace{0.5cm}
+
+    \begin{spacing}{1.2} \justifying
+      PV array is the most important topic in renewable energy. 
+      When the solar irradiance falls on PV array, which converts light energy into electrical energy.  
+      Basically, PV array is diode but the difference is here, it's acts as a source. 
+      
+      \vspace{0.2cm}
+      
+      \begin{figure}[h!]
+        \centering
+        \includegraphics[width=1.0\textwidth]{pic/simple pv circuit.jpeg}
+        \caption{simple PV circuit design in MATLAB}
+        \label{fig:simple_pv_circuit}
+      \end{figure}
+
+      \begin{figure}[h!]
+        \centering
+        \includegraphics[width=1.0\textwidth]{pic/IV charater of pv array.png}
+        \caption{IV characteristics of PV array graph in MATLAB}
+        \label{fig:IV_characteristics_of_PV}
+      \end{figure}
+
+      \newpage
+
+      \vspace{0.5cm}
+
+      \begin{figure}[h!]
+        \centering
+        \includegraphics[width=1.0\textwidth]{pic/PV charater of PV array.png}
+        \caption{PV characteristics of PV array graph in MATLAB}
+        \label{fig:PV_characteristics_of_PV}
+      \end{figure}
+
+      \vspace{0.5cm}
+      
+      \begin{figure}[h!]
+        \centering
+        \includegraphics[width=1.0\textwidth]{pic/Scope PV array.png}
+        \caption{Voltage, Current, Power vs time in scope, MATLAB}
+        \label{fig:Scope_PV_array}
+      \end{figure}
+
+      \newpage
+
+      When more than one PV array is connected—either in series or in parallel—the system behavior changes significantly under practical operating conditions.
+
+      In real-world scenarios, PV arrays often experience different irradiance levels due to shading, cloud movement, dust, or panel orientation. In series connections, mismatch in irradiance causes the array current to be limited by the lowest-irradiated panel, leading to power loss and potential hotspot issues. In parallel connections, voltage remains nearly constant, but current sharing becomes unequal, with higher-irradiance arrays supplying more current.
+
+      Therefore, variations in irradiance have a direct impact on overall power output, efficiency, and reliability of PV systems.
+
+      \newpage
+
+      \vspace*{-0.8cm}
+
+      \setlength{\parindent}{0pt}
+
+        {\fontsize{14.2pt}{0.1pt}\selectfont\textbf{1. MATLAB CIRCUITS AND RESULTS}}
+
+      \vspace*{0.9cm}
+
+      \begin{figure}[h!]
+        \centering
+        \includegraphics[width=1.0\textwidth]{pic/PV series circuit.png}
+        \caption{PV series with Boost Converter in MATLAB}
+        \label{fig:PV_series}
+      \end{figure}
+
+      \vspace*{0.9cm}
+
+      \begin{figure}[h!]
+        \centering
+        \includegraphics[width=1.0\textwidth]{pic/pv parallel circuit.png}
+        \caption{PV parallel with Boost Converter in MATLAB}
+        \label{fig:PV_parallel}
+      \end{figure}
+
+      \newpage
+
+      \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.7\textwidth]{pic/IV_char_series.png}
+        \caption{IV characteristics of PV series array (under different irradiance)graph in MATLAB}
+        \label{fig:PV_IV-characteristics}
+      \end{figure}
+
+      \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.7\textwidth]{pic/PV_char_series.png}
+        \caption{PV characteristics of PV series array (under different irradiance)graph in MATLAB}
+        \label{fig:PV_PV-characteristics}
+      \end{figure}
+
+      \vspace*{0.3cm}
+
+      From Figure~19 and Figure~20, clear I–V and P–V characteristics are not observed.
+      Under varying irradiance, series-connected PV arrays produce different voltages, which prevents achieving maximum output.
+      In parallel connections, each PV array operates independently despite irradiance variation.
+      Hence, the I–V and P–V characteristics remain similar to those in Figure~14 and Figure~15.
+
+    \end{spacing}
+
+    \begin{BorderedPage}
+      \vspace*{-1.0cm}
+
+      \setlength{\parindent}{0pt}
+
+        {\fontsize{14.2pt}{0.1pt}\selectfont\textbf{Task 4: Study and Develop MPPT algorithm}}
+
+      \vspace*{0.5cm}
+
+        According to Ohm's law,
+        \begin{equation}
+        R = \frac{V}{I}
+        \end{equation}
+
+        \vspace*{0.2cm} \justifying
+
+        Therefore, when the load resistance is varied, the corresponding voltage and current also change.
+
+        As a result, the characteristic curve shown in Figure~21 exhibits both minimum and maximum operating points. The blue circular markers on the orange curve represent the measured data points.
+
+        Among these points, one operating point corresponds to the maximum voltage and current, indicating the optimal operating (maximum power) point of the system.
+      \vspace*{0.8cm}
+
+      \begin{figure}[h!]
+        \centering
+        \includegraphics[width=1.0\textwidth]{pic/pv current vs voltage .png}
+        \caption{PV Voltage vs current with respect to changes in load graph in MATLAB}
+        \label{fig:VOltage_vs_current_graph}
+      \end{figure}
+
+      \vspace*{0.3cm} \justifying
+
+      When using a PV array with a boost or buck converter, the duty cycle or gate pulse of the MOSFET (switch) is varied to achieve maximum output power.
+
+      This process is known as Maximum Power Point Tracking (MPPT). In real-world scenarios, the maximum power point is not constant, so MPPT continuously tracks this point at every time interval to maintain maximum power output.
+
+    \end{BorderedPage}
+
+\end{BorderedPage}
+
+\begin{BorderedPage}
+  \vspace*{-1.0cm}
+
+      \setlength{\parindent}{0pt}
+
+        {\fontsize{14.2pt}{0.1pt}\selectfont\textbf{1. Study case and understanding the logic of MPPT P\&O algorithm}}
+
+        \vspace{0.5cm} 
+
+        \subsection*{Perturb and Observe (P\&O) MPPT Algorithm:}
+        \begin{itemize}
+            \item P\&O is a widely used \textbf{Maximum Power Point Tracking (MPPT)} method for PV systems.
+            \item The algorithm \textbf{perturbs the duty cycle} of the DC-DC converter and \textbf{observes the effect on PV power}.
+            \item If power \textbf{increases}, the perturbation direction is \textbf{kept the same}; if power \textbf{decreases}, the direction is \textbf{reversed}.
+            \item This process is repeated iteratively to \textbf{track the maximum power point} under varying irradiance and temperature conditions.
+            \item Simple, efficient, and \textbf{easy to implement in MATLAB} using measured voltage and current data.
+        \end{itemize}
+
+
+        \vspace{0.5cm}
+
+        \section*{P\&O MPPT MATLAB Code for our existing data:}
+
+        \begin{FullMatlabCode}[basicstyle=\ttfamily\small,breaklines=true,breakatwhitespace=false]{P\&O MPPT MATLAB Code}
+% P&O MPPT simulation using given V/I arrays
+% prints a neat table and plots results
+
+clear; clc; close all;
+
+% Given data
+V_PV = [34.8 35.3 32.83 32.29 28.92 19.16 11.24 5.6 ...
+  2.139 0.5142 0.1873];
+I_PV = [3.4 4.2 5.26 5.29 8.324 8.45 8.47 8.49 ...
+  8.50 8.513 8.515];
+N = numel(V_PV);
+
+% P&O parameters (tune as needed)
+duty = 0.5;        % initial duty (0..1)
+step = 0.01;       % perturbation step
+dir  = 1;          % +1 or -1
+min_duty = 0.0;
+max_duty = 1.0;
+epsilon = 1e-4;    % noise threshold (W)
+
+% Preallocate logs
+idx = (1:N)';
+P  = zeros(N,1);
+dP = zeros(N,1);
+dV = zeros(N,1);
+duty_before = zeros(N,1);
+duty_after  = zeros(N,1);
+dir_before  = zeros(N,1);
+dir_after   = zeros(N,1);
+notes = cell(N,1);
+
+% internal previous values
+v_prev = 0;
+p_prev = 0;
+
+for k = 1:N
+    v = V_PV(k);
+    i = I_PV(k);
+    p = v * i;
+            
+    % record state before update
+    duty_before(k) = duty;
+    dir_before(k)  = dir;
+            
+    % deltas
+    dP(k) = p - p_prev;
+    dV(k) = v - v_prev;
+            
+    % P&O update
+    if abs(dP(k)) <= epsilon
+       notes{k} = '(noise - no change)';
+    else
+       if dP(k) > 0
+           duty = duty + dir * step;
+           notes{k} = '(power up - keep dir)';
+       else
+           dir = -dir;
+           duty = duty + dir * step;
+           notes{k} = '(power down - reverse)';
+       end
+     end
+            
+     % clamp duty
+     duty = max(min_duty, min(max_duty, duty));
+            
+     % store after-update state
+     duty_after(k) = duty;
+     dir_after(k)  = dir;
+     P(k) = p;
+            
+     % update previous measurements
+     v_prev = v;
+     p_prev = p;
+end
+
+% Build neat table
+T = table(idx, V_PV', I_PV', P, dP, dV, ...
+    duty_before, duty_after, dir_before, ...
+    dir_after, notes, ...
+    'VariableNames', {'Idx', 'V_V', 'I_A', 'P_W', ...
+    'dP_W', 'dV_V', 'DutyBefore', 'DutyAfter', ...
+    'DirBefore', 'DirAfter', 'Note'});
+
+% Improve numeric display precision
+T.V_V        = round(T.V_V, 3);
+T.I_A        = round(T.I_A, 3);
+T.P_W        = round(T.P_W, 3);
+T.dP_W       = round(T.dP_W, 4);
+T.dV_V       = round(T.dV_V, 4);
+T.DutyBefore = round(T.DutyBefore, 4);
+T.DutyAfter  = round(T.DutyAfter, 4);
+
+% Print the table
+disp('P&O MPPT simulation results:');
+disp(T);
+
+% Optional: write CSV
+writetable(T, 'mppt_pno_results.csv');
+
+% Plot power and duty
+figure('Name','P&O MPPT Results', ...
+      'NumberTitle','off','Position',[100 100 700 500]);
+
+subplot(2,1,1);
+plot(idx, P, '-o','LineWidth',1.2);
+xlabel('Sample index'); 
+ylabel('Power (W)'); 
+grid on;
+title('PV Power');
+
+subplot(2,1,2);
+plot(idx, duty_after, '-s','LineWidth',1.2);
+xlabel('Sample index'); 
+ylabel('Duty (0..1)'); 
+grid on;
+title('Duty After Update');
+
+% Plot P and Duty with two y-axes
+figure('Name','Power & Duty','NumberTitle','off');
+yyaxis left;  
+plot(idx, P, '-o','LineWidth',1.2); 
+ylabel('Power (W)');
+yyaxis right; 
+plot(idx, duty_after, '-s','LineWidth',1.2); 
+ylabel('Duty (0..1)');
+xlabel('Sample index'); 
+grid on; 
+legend('Power','Duty','Location','best');
+        \end{FullMatlabCode}
+
+        \vspace{0.5cm} 
+        
+        {\fontsize{18pt}{14pt}\textbf{OUTPUT:}}
+
+        \vspace*{0.9cm}
+
+        \begin{figure}[h!]
+          \centering
+          \includegraphics[width=1.0\textwidth]{pic/Power & duty cycle.png}
+          \caption{Duty Cycle increases and decreases respect to power changes graph}
+          \label{fig:POWER_AND_DUTYCYCLE}
+        \end{figure}
+
+        \vspace*{0.9cm}
+
+        \begin{figure}[h!]
+          \centering
+          \includegraphics[width=1.0\textwidth]{pic/MPPT simulation code result.png}
+          \caption{Numerical data of duty cycles changes with respect to power changes}
+          \label{fig:MPPT_OUTPUT_RESULT}
+        \end{figure}
+
+        \newpage
+
+        \vspace{0.5cm} 
+        
+        {\fontsize{18pt}{14pt}\textbf{MPPT P\&O Algorithm:}}
+
+        \vspace*{0.9cm}
+
+        \begin{figure}[h!]
+          \centering
+          \includegraphics[width=1.0\textwidth]{pic/flow chart of MPPT P&O.png}
+          \caption{Flowchart of Perturb \& Observe Algorithm}
+          \label{fig:MPPT_FLOWCHART}
+        \end{figure}
+
+\end{BorderedPage}
+
+\begin{BorderedPage}
+   \vspace{-1.0cm} 
+        
+        {\fontsize{18pt}{14pt}\textbf{MATLAB Circuit \& Results:}}
+
+        \vspace*{0.9cm}
+
+        \begin{figure}[h!]
+          \centering
+          \includegraphics[width=1.0\textwidth]{pic/MPPT circuit.png}
+          \caption{PV array circuit with MPPT P\&O Algorithm in MATLAB}
+          \label{fig:MPPT_circuit}
+        \end{figure}
+
+        \vspace*{0.9cm}
+
+        \begin{figure}[h!]
+          \centering
+          \includegraphics[width=1.0\textwidth]{pic/MPPT out .png}
+          \caption{MPPT P\&O Algorithm Output Graph in MATLAB}
+          \label{fig:MPPT_OUTPUT}
+        \end{figure}
+
+        \newpage
+
+        
+        \vspace{0.5cm}
+
+        \section*{Our MPPT P\&O Algorithm as per logic of Figure~24:}
+
+        \begin{FullMatlabCode}[basicstyle=\ttfamily\small,breaklines=true,breakatwhitespace=false]{P\&O MPPT MATLAB Code}
+%----MPPT P&O Algorithm inside the matlab function block... 
+% on Figure 25 MATLAB CIRCUIT-----
+        
+function D = Perturb_Observe(V,I)
+
+persistent V_p P_p D_p
+if isempty(V_p)
+     V_p = 0; % Previous voltage = 0
+     P_p = 0; % Previous power = 0
+     D_p = 0; % Previous Duty cycle = 0
+end
+% Measure power
+P = V*I;
+
+if (P-P_p == 0) % Check the condition for MPP
+    D = D_p;
+end
+if (P-P_p > 0) % Compare powers
+   if (V-V_p > 0)  % Compare Voltages
+       D = D_p-0.005;
+       else
+           D = D_p+0.005;
+       end
+    else
+         if (V-V_p >0)  % Compare Voltages
+             D = D_p+0.005;
+         else
+             D = D_p-0.005;
+         end
+    end
+
+P_p = P;
+V_p = V;
+D_p = D;
+end
+        \end{FullMatlabCode}
+
+\newpage
+
+        \vspace*{0.9cm}
+
+        \begin{figure}[h!]
+          \centering
+          \includegraphics[width=1.0\textwidth]{pic/MPPT out 2.png}
+          \caption{MPPT P\&O Algorithm working on scope in MATLAB}
+          \label{fig:MPPT_OUTPUT_1}
+        \end{figure}
+
+        \vspace*{0.3cm} \justifying
+
+        On Figure~27, the MPPT P\&O algorithm starts at \SI{20}{ns} due to the chosen sample time, but ideally it should start at \SI{0}{\sec} or very close to \SI{0}{\sec}. This indicates that the algorithm is working properly, and the start time can be adjusted by reducing the sample time.
+
+        \vspace*{0.5cm}
+
+        \begin{figure}[h!]
+          \centering
+          \includegraphics[width=0.8\textwidth]{pic/MPPT out 3.png}
+          \caption{MPPT P\&O Algorithm working on scope in MATLAB}
+          \label{fig:MPPT_OUTPUT_2}
+        \end{figure}
+
+\end{BorderedPage}
+
+%---hardware demonstration
+\begin{BorderedPage}
+  \vspace*{-1.0cm}
+
+      \setlength{\parindent}{0pt}
+
+        {\fontsize{14.2pt}{0.1pt}\selectfont\textbf{Hardware Demonstration:}}
+
+         \vspace*{1.2cm}
+
+         \begin{spacing}{1.5} \justifying
+          We are greatly thankful to Mr. Arun, a research scholar under Dr. B. Bijukumar at NIT Karaikal, Pondicherry. 
+          He demonstrated and explained both theoretical and practical scenarios, providing deep knowledge of the components in a Boost Converter circuit with a PV array as the input source. 
+          He also introduced a simulation tool to model the PV array output, explained the required software, discussed the hardware design, and taught us how to read datasheets—skills that are extremely helpful to us.
+
+         \end{spacing}
+
+        \begin{figure}[h!]
+          \centering
+          \includegraphics[width=1.0\textwidth]{Hardware demo/EEE LAB 1.png}
+          \caption{Hardware setup of Boost converter with PV simulation instrument in simulation lab}
+          \label{fig:EEE LAB 1}
+        \end{figure}
+
+        \vspace*{0.3cm}
+
+        \begin{figure}[h!]
+          \centering
+          \includegraphics[width=1.0\textwidth]{Hardware demo/EEE LAB 2.png}
+          \caption{Live working demonstration of hardware setup in simulation lab}
+          \label{fig:EEE LAB 2}
+        \end{figure}
+
+        \newpage
+
+        \vspace*{0.3cm}
+
+        \begin{figure}[h!]
+          \centering
+          \includegraphics[width=1.0\textwidth]{Hardware demo/MOTOR 1.png}
+          \caption{BLDC motor hardware demonstration}
+          \label{fig:LAB 1}
+        \end{figure}
+
+        \vspace*{0.3cm}
+
+        \begin{figure}[h!]
+          \centering
+          \includegraphics[width=1.0\textwidth]{Hardware demo/MOTOR 2.png}
+          \caption{BLDC motor with driver circuit hardware setup}
+          \label{fig:LAB 2}
+        \end{figure}
+
+\end{BorderedPage}
+
+%---conclusion
+\begin{BorderedPage}
+  \vspace*{-1.5cm}
+
+        \begin{center}
+          {\fontsize{14.2pt}{0.1pt}\selectfont\textbf{Conclusion}}
+        \end{center}
+        
+        \begin{spacing}{1.2}
+          This two-week internship at the National Institute of Technology, Karaikal, proved to be a highly enriching academic and technical experience, offering valuable exposure to the practical aspects of power electronics and renewable energy systems. The program successfully bridged the gap between theoretical concepts and real-world applications through structured learning, simulations, and hardware demonstrations.
+
+          During the internship, I gained hands-on experience in the design, simulation, and performance analysis of a DC-DC Boost Converter using MATLAB and LTspice. This exercise strengthened my understanding of converter operation, efficiency evaluation, and the influence of component losses under different operating conditions. The study of RC low-pass and high-pass filters further enhanced my knowledge of signal conditioning and frequency-domain behavior in power electronic circuits.
+
+          A major focus of the internship was photovoltaic (PV) systems. I analyzed PV array characteristics, examined I-V and P-V curves, and studied the effects of series and parallel configurations under non-uniform irradiance conditions. The implementation and simulation of a Maximum Power Point Tracking (MPPT) system using the Perturb and Observe (P\&O) algorithm in MATLAB/Simulink provided practical insight into optimizing power extraction from PV systems.
+
+          Additionally, the hardware demonstrations involving boost converters, PV simulators, and BLDC motor drives offered real-time exposure to industrial-grade systems. These sessions reinforced the relationship between simulation results and physical system behavior, improving my understanding of design constraints and practical considerations.
+
+          Overall, this internship significantly enhanced my technical competence in power electronics, simulation tools, and renewable energy systems. It also improved my analytical thinking, problem-solving skills, and appreciation for the role of power electronics in sustainable energy solutions. I am sincerely thankful to the faculty and researchers at NIT Karaikal for their guidance and support. The knowledge and skills gained through this internship will serve as a strong foundation for my future academic pursuits and professional career in electrical engineering.
+        \end{spacing}
+
+\end{BorderedPage}
+
+
+\end{document}

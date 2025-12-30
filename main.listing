@@ -1,0 +1,35 @@
+%----MPPT P&O Algorithm inside the matlab function block...
+% on Figure 25 MATLAB CIRCUIT-----
+
+function D = Perturb_Observe(V,I)
+
+persistent V_p P_p D_p
+if isempty(V_p)
+     V_p = 0; % Previous voltage = 0
+     P_p = 0; % Previous power = 0
+     D_p = 0; % Previous Duty cycle = 0
+end
+% Measure power
+P = V*I;
+
+if (P-P_p == 0) % Check the condition for MPP
+    D = D_p;
+end
+if (P-P_p > 0) % Compare powers
+   if (V-V_p > 0)  % Compare Voltages
+       D = D_p-0.005;
+       else
+           D = D_p+0.005;
+       end
+    else
+         if (V-V_p >0)  % Compare Voltages
+             D = D_p+0.005;
+         else
+             D = D_p-0.005;
+         end
+    end
+
+P_p = P;
+V_p = V;
+D_p = D;
+end

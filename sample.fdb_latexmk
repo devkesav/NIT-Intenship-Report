@@ -1,0 +1,25 @@
+# Fdb version 4
+["pdflatex"] 1766643724.2536 "d:/e-books/internship_report/sample.tex" "sample.pdf" "sample" 1766643724.97078 2
+  "C:/Users/kesav/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1766173144 13333512 aff25a1f9c13447ab8f63100f56c084b ""
+  "C:/Users/kesav/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmr12.tfm" 1136765053 1288 655e228510b4c2a1abe905c368440826 ""
+  "C:/Users/kesav/AppData/Local/Programs/MiKTeX/tex/generic/iftex/iftex.sty" 1734114575 7984 7dbb9280f03c0a315425f1b4f35d43ee ""
+  "C:/Users/kesav/AppData/Local/Programs/MiKTeX/tex/generic/iftex/ifvtex.sty" 1734114575 1057 525c2192b5febbd8c1f662c9468335bb ""
+  "C:/Users/kesav/AppData/Local/Programs/MiKTeX/tex/latex/base/report.cls" 1761900684 23203 f495085ac76be4e20c5e1e88646a241e ""
+  "C:/Users/kesav/AppData/Local/Programs/MiKTeX/tex/latex/base/size12.clo" 1761900684 8449 8dc66c6c313c8eb2d774af83bca435dd ""
+  "C:/Users/kesav/AppData/Local/Programs/MiKTeX/tex/latex/fontspec/fontspec.sty" 1759156201 3804 debc05110ffb506cef68ea4e72c7bcee ""
+  "C:/Users/kesav/AppData/Local/Programs/MiKTeX/tex/latex/geometry/geometry.cfg" 1578053545 1104 7ac475a4e3466b0b43e138e9356bda83 ""
+  "C:/Users/kesav/AppData/Local/Programs/MiKTeX/tex/latex/geometry/geometry.sty" 1578053545 42759 9cf6c5257b1bc7af01a58859749dd37a ""
+  "C:/Users/kesav/AppData/Local/Programs/MiKTeX/tex/latex/graphics/keyval.sty" 1749322634 2671 d9941f4bf4750e9b0603c9a2ec54693b ""
+  "C:/Users/kesav/AppData/Local/Programs/MiKTeX/tex/latex/l3backend/l3backend-pdftex.def" 1761202581 30662 bfd6e864f4ffc5018b0e2b6260c3181c ""
+  "C:/Users/kesav/AppData/Local/Programs/MiKTeX/tex/latex/l3kernel/expl3.sty" 1762949142 6558 2d6a01587292e69db3446e139f25ba65 ""
+  "C:/Users/kesav/AppData/Local/Programs/MiKTeX/tex/latex/l3packages/xparse/xparse.sty" 1761203377 10176 c2fc1c663b3f3899ddac6e6ed3fb1d7e ""
+  "C:/Users/kesav/AppData/Local/Programs/MiKTeX/tex/latex/setspace/setspace.sty" 1670403145 22490 8cac309b79a4c53a4ffce4b1b07aead0 ""
+  "C:/Users/kesav/AppData/Local/Programs/MiKTeX/tex/latex/titlesec/titlesec.sty" 1736608268 48766 87a17a4ef312a39cd43896e34a679a56 ""
+  "d:/e-books/internship_report/sample.tex" 1766643620 3671 810c263a33f7498a2fb231ea24c6089c ""
+  "sample.aux" 1766643716 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "sample.tex" 1766643620 3671 810c263a33f7498a2fb231ea24c6089c ""
+  (generated)
+  "sample.aux"
+  "sample.log"
+  "sample.pdf"
+  (rewritten before read)
