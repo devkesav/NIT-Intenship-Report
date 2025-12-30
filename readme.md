@@ -22,8 +22,8 @@ Step by step instruction
 
 ## Sample Images
 
-![Boost Converter Calculation](images/boost_converter_cal.png)
+![Boost Converter Calculation](image/boost_converter_cal.png)
 
-![RC filter calculation](images/RC_filter_cal.png)
+![RC filter calculation](image/RC_filter_cal.png)
 
-![Matlab code and graph](images/graph_with_matlab_code.png)
+![Matlab code and graph](image/graph_with_matlab_code.png)
