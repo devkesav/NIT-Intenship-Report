@@ -1,5 +1,5 @@
 # Who am I?
-Hello everyone, I’m **Deventhira Kesavaraj**, currently pursuing **B.E. in Electrical and Electronics Engineering** at **KPR Institute of Engineering and Technology (KPRIET), Coimbatore**, **batch 2024–2028**.
+Hello everyone, I’m **Deventhira Kesavaraj**, currently pursuing **B.E. in Electrical and Electronics Engineering(batch 2024–2028)** at **KPR Institute of Engineering and Technology (KPRIET), Coimbatore**.
 
 # What is latex?
 This is an programming language like python, c and java as more same as markdown but **used to develop a research papers with more and complex math equations**.
