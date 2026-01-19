@@ -165,8 +165,17 @@
 
 \BoldMid{By}\\[0.4cm]
 
-\BoldMid{KESAVARAJ K}\\
-\BoldMid{Reg No : 24EE037}\\[1.0cm]
+\vspace{0.6cm}
+
+\noindent
+\makebox[\textwidth]{%
+\makebox[0.33\textwidth][l]{\textbf{\MakeUppercase{Nishanth M (24EE044)}}}%
+\makebox[0.39\textwidth][c]{\textbf{\MakeUppercase{Kesavaraj K (24EE037)}}}%
+\makebox[0.29\textwidth][r]{\textbf{\MakeUppercase{Yathav P (25EEL05)}}}%
+}
+
+\vspace{1.0cm}
+
 
 \NormalMid{\textbf{Under Supervision of}}\\[0.4cm]
 
@@ -229,7 +238,7 @@
 \exhyphenpenalty=10000
 \fontsize{12pt}{18pt}\selectfont
 This is to certify that the \textbf{Internship report} submitted by
-\textbf{KESAVARAJ K (24EE037)} is the work done by him and submitted
+\textbf{KESAVARAJ K (24EE037), YATHAV P (25EEL05), NISHANTH M (24EE044)} is the work done by him and submitted
 during the academic year \textbf{2025--2026}, in partial fulfillment
 of the requirements for the award of the degree of
 \textbf{BACHELOR OF ENGINEERING in ELECTRICAL AND ELECTRONICS ENGINEERING}
@@ -256,13 +265,31 @@ Department of EEE & Department of EEE \\[1mm]
 \end{BorderedPage}
 
 %--page3 
-\begin{BorderedPage} 
-  \vspace*{-0.8cm}
-    \begin{center}
-        \BoldMid{INTERNSHIP COMPLETION CERTIFICATE}
-    \end{center}
+\begin{BorderedPage}
+\thispagestyle{empty}
+
+\vspace*{0.3cm}
+
+\begin{center}
+    {\Large\BoldMid{INTERNSHIP COMPLETION CERTIFICATE}}
+
+    \vspace{1.0cm}
+    
+  \includegraphics[
+      width=0.9\textwidth,
+      trim=1.2cm 0cm 0cm 0cm,
+      clip
+  ]{Internship Certificate_KPR.jpg}
+
+\end{center}
+
+
+
+\vspace*{\fill}
 
 \end{BorderedPage}
+
+
 
 %--page4
 \begin{BorderedPage}
@@ -274,7 +301,7 @@ Department of EEE & Department of EEE \\[1mm]
 \begin{spacing}{1.5}
 \justifying
 
-First and foremost, we would like to express our sincere gratitude to our respected \textbf{Head of the Department, Dr. K. Mohana Sundaram}, for her continuous support, encouragement, and valuable guidance throughout the internship. Her motivation and kind permission enabled us to gain practical exposure beyond the classroom curriculum.  
+First and foremost, we would like to express our sincere gratitude to our respected \textbf{Head of the Department, Dr. K. Mohana Sundaram}, for his continuous support, encouragement, and valuable guidance throughout the internship. His motivation and kind permission enabled us to gain practical exposure beyond the classroom curriculum.  
 
 We are extremely grateful to our \textbf{Chief Mentor, Dr. I. Baranilingesan}, for sharing the internship brochure, encouraging us to apply, and providing timely guidance, which helped us gain real-world experience and enhance our technical and professional skills.  
 
@@ -351,7 +378,7 @@ This report documents the concepts learned, tools used, and the overall experien
 
 \vspace{0.5cm}
 \fontsize{15pt}{10pt}
-\textbf{About the College}
+\textbf{About the institution}
 \end{center}
 
 \begin{spacing}{1.5}
@@ -793,9 +820,9 @@ C &= \SI{97}{\mu F} \quad \text{(output capacitance)}
 
 \begin{figure}[h!]
         \centering
-        \includegraphics[width=1.0\textwidth]{pic/efficiency vs ouput power .jpeg}
+        \includegraphics[width=1.0\textwidth]{pic/efficiency vs ouput power.png}
         \caption{Efficiency vs Ouput Power graph from our calculation}
-        \label{fig:efficiency vs ouput power}
+        \label{fig:efficiency vs ouput power} 
       \end{figure}
 
 \begin{figure}[h!]
@@ -1148,18 +1175,22 @@ Behavior of RC filter is based on the arrangement of resistor and capacitor.
 
     \setlength{\parindent}{0pt}
 
-    {\fontsize{12pt}{14.4pt}\selectfont\textbf{2. Add two sine waves (\(\textbf{50}\,\text{Hz}\) and \(\textbf{100}\,\text{Hz}\)):}}
+    {\fontsize{12pt}{14.4pt}\selectfont\textbf{2. Add two sine waves (\(\textbf{50}\,\text{Hz}\) and \(\textbf{2k}\,\text{Hz}\)):}}
 
     \vspace{0.3cm}
 
     \begin{spacing}{1.2} \justifying
       
-      In the design of a circuit to add two sine waves, the limitations of the RC filter become evident.
+      In the design of a circuit to add two sine waves, the limitations of the RC filter become evident. 
+      Although the RC filter is simple, low-cost, and easy to implement, its performance strongly depends on the separation between the signal frequencies.
 
-      Although the RC filter is simple and efficient, it performs poorly when the frequencies are very close—such as \SI{50}{\hertz} and \SI{100}{\hertz}—making the filtering effect negligible.
+      For widely separated frequencies, such as \SI{50}{\hertz} and \SI{2}{\kilo\hertz}, an RC filter can provide acceptable attenuation of the unwanted frequency component. 
+      However, when the two sine wave frequencies are very close to each other, the filter fails to provide effective separation. 
+      In such cases, the roll-off of the RC filter is too gradual, resulting in poor selectivity and a negligible filtering effect.
 
-      Thus, RC filters are ineffective for separating closely spaced frequencies.
-    \end{spacing}
+      Therefore, RC filters are inefficient for separating closely spaced sine wave frequencies and are unsuitable for applications requiring sharp frequency discrimination.
+
+    \end{spacing} 
     
     \vspace{0.3cm}
 
@@ -1298,9 +1329,9 @@ Behavior of RC filter is based on the arrangement of resistor and capacitor.
 
         {\fontsize{14.2pt}{0.1pt}\selectfont\textbf{Task 4: Study and Develop MPPT algorithm}}
 
-      \vspace*{0.5cm}
+      \vspace*{1.2cm}
 
-        According to Ohm's law,
+       According to Ohm's law,
         \begin{equation}
         R = \frac{V}{I}
         \end{equation}
@@ -1309,23 +1340,16 @@ Behavior of RC filter is based on the arrangement of resistor and capacitor.
 
         Therefore, when the load resistance is varied, the corresponding voltage and current also change.
 
-        As a result, the characteristic curve shown in Figure~21 exhibits both minimum and maximum operating points. The blue circular markers on the orange curve represent the measured data points.
+        As a result, the characteristic curve exhibits both minimum and maximum operating points. The blue circular markers on the curve represent the measured data points.
 
         Among these points, one operating point corresponds to the maximum voltage and current, indicating the optimal operating (maximum power) point of the system.
-      \vspace*{0.8cm}
 
-      \begin{figure}[h!]
-        \centering
-        \includegraphics[width=1.0\textwidth]{pic/pv current vs voltage .png}
-        \caption{PV Voltage vs current with respect to changes in load graph in MATLAB}
-        \label{fig:VOltage_vs_current_graph}
-      \end{figure}
+        \vspace*{0.2cm} \justifying
 
-      \vspace*{0.3cm} \justifying
+        When using a PV array with a boost or buck converter, the duty cycle or gate pulse of the MOSFET (switch) is varied to achieve maximum output power.
 
-      When using a PV array with a boost or buck converter, the duty cycle or gate pulse of the MOSFET (switch) is varied to achieve maximum output power.
+        This process is known as Maximum Power Point Tracking (MPPT). In real-world scenarios, the maximum power point is not constant, so MPPT continuously tracks this point at every time interval to maintain maximum power output.
 
-      This process is known as Maximum Power Point Tracking (MPPT). In real-world scenarios, the maximum power point is not constant, so MPPT continuously tracks this point at every time interval to maintain maximum power output.
 
     \end{BorderedPage}
 
@@ -1598,7 +1622,7 @@ end
 
         \begin{figure}[h!]
           \centering
-          \includegraphics[width=1.0\textwidth]{pic/MPPT out 2.png}
+          \includegraphics[width=1.0\textwidth]{pic/MPPT out 2.jpeg}
           \caption{MPPT P\&O Algorithm working on scope in MATLAB}
           \label{fig:MPPT_OUTPUT_1}
         \end{figure}
@@ -1611,7 +1635,7 @@ end
 
         \begin{figure}[h!]
           \centering
-          \includegraphics[width=0.8\textwidth]{pic/MPPT out 3.png}
+          \includegraphics[width=0.8\textwidth]{pic/MPPT out 3.jpeg}
           \caption{MPPT P\&O Algorithm working on scope in MATLAB}
           \label{fig:MPPT_OUTPUT_2}
         \end{figure}
@@ -1682,15 +1706,16 @@ end
         \end{center}
         
         \begin{spacing}{1.2}
-          This two-week internship at the National Institute of Technology, Karaikal, proved to be a highly enriching academic and technical experience, offering valuable exposure to the practical aspects of power electronics and renewable energy systems. The program successfully bridged the gap between theoretical concepts and real-world applications through structured learning, simulations, and hardware demonstrations.
+          This two-week internship at the National Institute of Technology, Karaikal, proved to be a highly enriching academic and technical experience, providing valuable exposure to the practical aspects of power electronics and renewable energy systems. The program successfully bridged the gap between theoretical concepts and real-world applications through structured learning sessions, simulation-based analysis, and hardware demonstrations.
 
-          During the internship, I gained hands-on experience in the design, simulation, and performance analysis of a DC-DC Boost Converter using MATLAB and LTspice. This exercise strengthened my understanding of converter operation, efficiency evaluation, and the influence of component losses under different operating conditions. The study of RC low-pass and high-pass filters further enhanced my knowledge of signal conditioning and frequency-domain behavior in power electronic circuits.
+During the internship period, hands-on experience was gained in the design, simulation, and performance analysis of a DC--DC boost converter using MATLAB and LTspice. This activity strengthened the understanding of converter operation, efficiency evaluation, and the impact of component losses under varying operating conditions. The study of RC low-pass and high-pass filters further enhanced knowledge of signal conditioning techniques and frequency-domain behavior in power electronic circuits.
 
-          A major focus of the internship was photovoltaic (PV) systems. I analyzed PV array characteristics, examined I-V and P-V curves, and studied the effects of series and parallel configurations under non-uniform irradiance conditions. The implementation and simulation of a Maximum Power Point Tracking (MPPT) system using the Perturb and Observe (P\&O) algorithm in MATLAB/Simulink provided practical insight into optimizing power extraction from PV systems.
+A major emphasis of the internship was placed on photovoltaic (PV) systems. PV array characteristics were analyzed through the examination of I--V and P--V curves, and the effects of series and parallel configurations under non-uniform irradiance conditions were studied. The implementation and simulation of a Maximum Power Point Tracking (MPPT) system using the Perturb and Observe (P\&O) algorithm in MATLAB/Simulink provided practical insight into optimizing power extraction from PV systems.
 
-          Additionally, the hardware demonstrations involving boost converters, PV simulators, and BLDC motor drives offered real-time exposure to industrial-grade systems. These sessions reinforced the relationship between simulation results and physical system behavior, improving my understanding of design constraints and practical considerations.
+In addition, hardware demonstrations involving boost converters, PV simulators, and BLDC motor drives offered real-time exposure to industrial-grade systems. These demonstrations reinforced the correlation between simulation results and actual system behavior, thereby improving the understanding of design limitations and practical constraints.
 
-          Overall, this internship significantly enhanced my technical competence in power electronics, simulation tools, and renewable energy systems. It also improved my analytical thinking, problem-solving skills, and appreciation for the role of power electronics in sustainable energy solutions. I am sincerely thankful to the faculty and researchers at NIT Karaikal for their guidance and support. The knowledge and skills gained through this internship will serve as a strong foundation for my future academic pursuits and professional career in electrical engineering.
+Overall, the internship significantly enhanced technical competence in power electronics, simulation tools, and renewable energy systems. It also contributed to the development of analytical thinking and problem-solving skills, along with a deeper appreciation of the role of power electronics in sustainable energy solutions. The guidance and support provided by the faculty and researchers at NIT Karaikal were invaluable, and the knowledge gained through this internship established a strong foundation for future academic and professional pursuits in electrical engineering.
+
         \end{spacing}
 
 \end{BorderedPage}

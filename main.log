@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.12.25)  30 DEC 2025 22:44
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2026.1.4)  19 JAN 2026 12:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -926,17 +926,26 @@ File: img-0.jpeg Graphic file (type bmp)
 ]
 File: img-0.jpeg Graphic file (type bmp)
 <img-0.jpeg>
- [2
+
+Underfull \hbox (badness 1668) in paragraph at lines 246--246
+\TU/TimesNewRoman(0)/b/n/12 AND ELECTRONICS ENGINEERING \TU/TimesNewRoman(0)/m/
+n/12 at \TU/TimesNewRoman(0)/b/n/12 KPR Institute of Engineering and
+ []
+
+[2
 
 
-] [3
+]
+File: Internship Certificate_KPR.jpg Graphic file (type bmp)
+<Internship Certificate_KPR.jpg>
+ [3
 
 
 ] [4
 
 
 ]
-Underfull \hbox (badness 4120) in paragraph at lines 303--304
+Underfull \hbox (badness 4120) in paragraph at lines 330--331
 []\TU/TimesNewRoman(0)/m/n/12 The internship also enhanced problem-solving skil
 ls by applying theoretical
  []
@@ -948,13 +957,13 @@ ls by applying theoretical
 
 
 ]
-Underfull \hbox (badness 2012) in paragraph at lines 361--362
+Underfull \hbox (badness 2012) in paragraph at lines 388--389
 \TU/TimesNewRoman(0)/m/n/12 engineering and science disciplines. The institutio
 n emphasizes both theoretical
  []
 
 
-Underfull \hbox (badness 4886) in paragraph at lines 365--366
+Underfull \hbox (badness 4886) in paragraph at lines 392--393
 \TU/TimesNewRoman(0)/m/n/12 programs focus on bridging the gap between academic
  learning and practical
  []
@@ -972,17 +981,17 @@ Underfull \hbox (badness 4886) in paragraph at lines 365--366
 
 
 ]
-Underfull \hbox (badness 4819) in paragraph at lines 552--553
+Underfull \hbox (badness 4819) in paragraph at lines 579--580
 []|\TU/TimesNewRoman(0)/m/n/12 Simulation of DC-DC Boost Converter in
  []
 
 
-Underfull \hbox (badness 4819) in paragraph at lines 554--555
+Underfull \hbox (badness 4819) in paragraph at lines 581--582
 []|\TU/TimesNewRoman(0)/m/n/12 Simulation of DC-DC Boost Converter in
  []
 
 
-Underfull \hbox (badness 4341) in paragraph at lines 572--573
+Underfull \hbox (badness 4341) in paragraph at lines 599--600
 []|\TU/TimesNewRoman(0)/m/n/12 Design of Boost Converter with series &
  []
 
@@ -1001,8 +1010,8 @@ File: pic/boost convert.png Graphic file (type bmp)
 
 
 ] [14]
-File: pic/efficiency vs ouput power .jpeg Graphic file (type bmp)
-<pic/efficiency vs ouput power .jpeg>
+File: pic/efficiency vs ouput power.png Graphic file (type bmp)
+<pic/efficiency vs ouput power.png>
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1022,7 +1031,7 @@ File: pic/Low Pass RC.png Graphic file (type bmp)
 File: pic/High Pass RC.png Graphic file (type bmp)
 <pic/High Pass RC.png>
 
-Underfull \hbox (badness 1596) in paragraph at lines 872--873
+Underfull \hbox (badness 1596) in paragraph at lines 899--900
 []\TU/TimesNewRoman(0)/m/n/12 On the left side of Figure 6, one graph is clearl
 y shown, which represents the
  []
@@ -1034,7 +1043,7 @@ y shown, which represents the
 File: pic/LPF Plot graph.png Graphic file (type bmp)
 <pic/LPF Plot graph.png>
 
-Underfull \hbox (badness 3138) in paragraph at lines 1103--1103
+Underfull \hbox (badness 3138) in paragraph at lines 1130--1130
 []\TU/TimesNewRoman(0)/m/n/12 Figure 7: Hand Plotted Low Pass RC Filter charact
 eristics graph in semi-log
  []
@@ -1045,7 +1054,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 File: pic/HPF Plot graph.png Graphic file (type bmp)
 <pic/HPF Plot graph.png>
 
-Underfull \hbox (badness 2809) in paragraph at lines 1110--1110
+Underfull \hbox (badness 2809) in paragraph at lines 1137--1137
 []\TU/TimesNewRoman(0)/m/n/12 Figure 8: Hand Plotted High Pass RC Filter charac
 teristics graph in semi-log
  []
@@ -1062,16 +1071,28 @@ File: pic/full wave result(1).png Graphic file (type bmp)
 
 
 ]
+Underfull \hbox (badness 2253) in paragraph at lines 1191--1192
+[]\TU/TimesNewRoman(0)/m/n/12 Therefore, RC filters are inefficient for separat
+ing closely spaced sine wave
+ []
+
 File: pic/added sine circuit.png Graphic file (type bmp)
 <pic/added sine circuit.png>
 File: pic/added sine wave.png Graphic file (type bmp)
 <pic/added sine wave.png>
- [26]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[26] [27]
 File: pic/simple pv circuit.jpeg Graphic file (type bmp)
 <pic/simple pv circuit.jpeg>
 File: pic/IV charater of pv array.png Graphic file (type bmp)
 <pic/IV charater of pv array.png>
- [27
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[28
 
 
 ]
@@ -1079,20 +1100,21 @@ File: pic/PV charater of PV array.png Graphic file (type bmp)
 <pic/PV charater of PV array.png>
 File: pic/Scope PV array.png Graphic file (type bmp)
 <pic/Scope PV array.png>
- [28] [29]
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[29] [30]
 File: pic/PV series circuit.png Graphic file (type bmp)
 <pic/PV series circuit.png>
 File: pic/pv parallel circuit.png Graphic file (type bmp)
 <pic/pv parallel circuit.png>
- [30]
+ [31]
 File: pic/IV_char_series.png Graphic file (type bmp)
 <pic/IV_char_series.png>
 File: pic/PV_char_series.png Graphic file (type bmp)
 <pic/PV_char_series.png>
- [31]
-File: pic/pv current vs voltage .png Graphic file (type bmp)
-<pic/pv current vs voltage .png>
- [32
+ [32] [33
 
 ]
 \g__tcobox_out_iow=\write4
@@ -1101,41 +1123,41 @@ File: pic/pv current vs voltage .png Graphic file (type bmp)
  (main.listing
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10.95> not available
 (Font)              Font shape `TU/lmtt/b/n' tried instead on input line 4.
-) [33
+) [34
 
 
 
-]
-[34] [35]
+] [35] [36]
 File: pic/Power & duty cycle.png Graphic file (type bmp)
 <pic/Power & duty cycle.png>
 File: pic/MPPT simulation code result.png Graphic file (type bmp)
 <pic/MPPT simulation code result.png>
- [36]
+ [37]
 File: pic/flow chart of MPPT P&O.png Graphic file (type bmp)
 <pic/flow chart of MPPT P&O.png>
- [37]
+ [38]
 File: pic/MPPT circuit.png Graphic file (type bmp)
 <pic/MPPT circuit.png>
 File: pic/MPPT out .png Graphic file (type bmp)
 <pic/MPPT out .png>
- [38
+ [39
 
 
 ]
 \openout4 = `main.listing'.
 
- (main.listing) [39]
-File: pic/MPPT out 2.png Graphic file (type bmp)
-<pic/MPPT out 2.png>
-File: pic/MPPT out 3.png Graphic file (type bmp)
-<pic/MPPT out 3.png>
- [40]
+
+(main.listing) [40]
+File: pic/MPPT out 2.jpeg Graphic file (type bmp)
+<pic/MPPT out 2.jpeg>
+File: pic/MPPT out 3.jpeg Graphic file (type bmp)
+<pic/MPPT out 3.jpeg>
+ [41]
 File: Hardware demo/EEE LAB 1.png Graphic file (type bmp)
 <Hardware demo/EEE LAB 1.png>
 
-Underfull \hbox (badness 1052) in paragraph at lines 1641--1641
-[]\TU/TimesNewRoman(0)/m/n/12 Figure 29: Hardware setup of Boost converter with
+Underfull \hbox (badness 1052) in paragraph at lines 1665--1665
+[]\TU/TimesNewRoman(0)/m/n/12 Figure 28: Hardware setup of Boost converter with
  PV simulation instrument in
  []
 
@@ -1144,7 +1166,7 @@ File: Hardware demo/EEE LAB 2.png Graphic file (type bmp)
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[41
+[42
 
 
 ]
@@ -1159,7 +1181,37 @@ File: Hardware demo/MOTOR 2.png Graphic file (type bmp)
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[42] [43] [44
+[43] [44]
+Underfull \hbox (badness 1009) in paragraph at lines 1709--1710
+\TU/TimesNewRoman(0)/m/n/12 program successfully bridged the gap between theore
+tical concepts and real-world
+ []
+
+
+Underfull \hbox (badness 3590) in paragraph at lines 1709--1710
+\TU/TimesNewRoman(0)/m/n/12 applications through structured learning sessions, 
+simulation-based analysis, and
+ []
+
+
+Underfull \hbox (badness 1867) in paragraph at lines 1711--1712
+[]\TU/TimesNewRoman(0)/m/n/12 During the internship period, hands-on experience
+ was gained in the design,
+ []
+
+
+Underfull \hbox (badness 1297) in paragraph at lines 1715--1716
+\TU/TimesNewRoman(0)/m/n/12 behavior, thereby improving the understanding of de
+sign limitations and practical
+ []
+
+
+Underfull \hbox (badness 2293) in paragraph at lines 1717--1718
+[]\TU/TimesNewRoman(0)/m/n/12 Overall, the internship significantly enhanced te
+chnical competence in power
+ []
+
+[45
 
 
 ] (main.aux)
@@ -1169,12 +1221,12 @@ L3 programming layer <2025-11-06>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 26181 strings out of 402987
- 626896 string characters out of 5448523
- 1645305 words of memory out of 5000000
- 54488 multiletter control sequences out of 15000+600000
+ 26183 strings out of 402987
+ 626914 string characters out of 5448525
+ 1646305 words of memory out of 5000000
+ 54489 multiletter control sequences out of 15000+600000
  633090 words of font info for 104 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 84i,12n,104p,635b,1956s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,12n,104p,637b,1956s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (44 pages).
+Output written on main.pdf (45 pages).
